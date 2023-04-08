@@ -1,7 +1,7 @@
 local discord = loadstring(game:HttpGet"https://raw.githubusercontent.com/stavratum/lua/main/Discord.lua")()
 local uwuware, connected = loadstring(game:HttpGet'https://raw.githubusercontent.com/OPENCUP/random-texts/main/ui.lua')(), {} do
     local Window = uwuware:CreateWindow'AFC | MMM AP'
-    local Main = Android:AddFolder'Main'
+    local Main = Window:AddFolder'Main'
     Main:AddToggle{text = 'Toggle autoplayer',flag = 'yes',state = true}
     Main:AddBind{text = 'Hide GUI',key = Enum.KeyCode.Quote,
         callback = function()uwuware:Close()end
@@ -88,10 +88,10 @@ for _,v in pairs(client.PlayerGui.ScreenGui:GetChildren()) do
                                 end
                                 
                                 if uwuware.flags.yes then
-                                    manager:SendKeyEvent(true, Keys[tostring(#Notes:GetChildren())][Holder.name .. 'Key'] ,true,nil)
+                                    manager:SendKeyEvent(true, Keys[tostring(#Notes:GetChildren())][Holder.name .. 'Key'] ,false,nil)
                                     
                                     if #LongNotes[Holder.name]:GetChildren() == 0 then
-                                        manager:SendKeyEvent(false, Keys[tostring(#Notes:GetChildren())][Holder.name .. 'Key'] ,true,nil)
+                                        manager:SendKeyEvent(false, Keys[tostring(#Notes:GetChildren())][Holder.name .. 'Key'] ,false,nil)
                                     end
                                 end
                             end
@@ -119,6 +119,3 @@ for _,v in pairs(client.PlayerGui.ScreenGui:GetChildren()) do
                 )
             end
         )
-        
-    end
-end
